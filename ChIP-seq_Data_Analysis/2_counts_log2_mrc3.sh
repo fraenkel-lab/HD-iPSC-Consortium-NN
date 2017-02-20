@@ -7,7 +7,7 @@ do
     COUNTS=$cdir/${x}counts.txt
     readcounts=../data/mapped_read_counts.txt
     OUT=$cdir/${x}counts_rpmlog2.pdf
-    CMD="wqsub.py python $script --outfile $OUT --log --sample $x --counts ${readcounts} $COUNTS"
+    CMD="python $script --outfile $OUT --log --sample $x --counts ${readcounts} $COUNTS"
     echo $CMD
     $CMD
 done

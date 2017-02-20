@@ -1,3 +1,5 @@
+#Chris Ng
+
 from __future__ import division
 import sys, math, cPickle,os
 import numpy as np
