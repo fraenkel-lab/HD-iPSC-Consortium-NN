@@ -1,3 +1,5 @@
+#Chris Ng
+
 from __future__ import division
 import sys, math, cPickle,os
 import numpy as np
@@ -9,7 +11,6 @@ matplotlib.rcParams['pdf.fonttype']=42
 from optparse import OptionParser
 from collections import defaultdict
 from TAMO.util.Arith import hypgeomsummore
-sys.path+=['/nfs/vendata/cwng/apps/fishers_exact_test','/nfs/vendata/cwng/apps/fishers_exact_test/src','/nfs/vendata/cwng/apps/fisher-0.1.4/fisher-0.1.4-py2.6-linux-x86_64.egg/fisher/']
 from fisher import pvalue
 
 def bobby_fisher(a,b,c,d):
@@ -18,6 +19,10 @@ def bobby_fisher(a,b,c,d):
     return P.left_tail,P.right_tail
 
 def contingency_table(C,G,ALL_CLUS,G_bg):
+    """
+    return table with rows "genes in cluster k" and "genes not in cluster k", 
+    and columns "genes down- or up-regulated" and "genes expressed (in background) but not down- or up-regulated
+    """
     a=len(C.intersection(G))
     b=len(C.intersection(G_bg))-a
     c=len(ALL_CLUS.intersection(G))-a
